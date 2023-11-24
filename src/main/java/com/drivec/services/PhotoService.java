@@ -19,7 +19,14 @@ public class PhotoService {
     @Autowired
     private PhotoRepository photoRepo;
 
-
+    /**
+     *
+     * @param userId id of user
+     * @param title title of image
+     * @param file image file
+     * @return id of the uploaded file
+     * @throws IOException if file cannot be uploaded
+     */
     public String addFile(String userId, String title, MultipartFile file) throws IOException {
         try {
             Photo photo = new Photo(userId, title);
@@ -33,14 +40,45 @@ public class PhotoService {
     }
 
 
+    /**
+     *
+     * @param id id of the photo
+     * @return return true if photo is deleted, and false otherwise.
+     */
+    public boolean deletePhoto(String id) {
+        if(getPhoto(id) != null) {
+            photoRepo.deleteById(id);
+            return true;
+        }
+        return false;
+
+
+
+    }
+
+
+    /**
+     *
+     * @param id of phoot
+     * @return a photo object
+     */
     public Photo getPhoto(String id) {
         return photoRepo.findById(id).get();
     }
 
+    /**
+     *
+      * @return a list all photos by every user.
+     */
     public List<Photo> getAllPhotos() {
         return photoRepo.findAll();
     }
 
+    /**
+     *
+     * @param id of specific user
+     * @return list of all photos by a user
+     */
     public List<Photo> getAllPhotosByUser(String id) {
         return photoRepo.getAllPhotosByUser(id);
     }
