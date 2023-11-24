@@ -9,6 +9,6 @@ import java.util.List;
 //Example Repo. DELETE LATER
 public interface TaskRepository extends MongoRepository<Task,String> {
     List<Task> findBySeverity(int severity);
-    @Query("{assignee: ?0 }") //what does this do??????????
+    @Query("{assignee: ?0 }")
     List <Task> getTasksByAssignee(String assignee);
 }

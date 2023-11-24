@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 
 @Service
@@ -34,5 +35,13 @@ public class PhotoService {
 
     public Photo getPhoto(String id) {
         return photoRepo.findById(id).get();
+    }
+
+    public List<Photo> getAllPhotos() {
+        return photoRepo.findAll();
+    }
+
+    public List<Photo> getAllPhotosByUser(String id) {
+        return photoRepo.getAllPhotosByUser(id);
     }
 }
