@@ -24,8 +24,4 @@ public class User {
         this.userName = userName;
     }
 
-    public String getUserId() {
-
-        return this.userId;
-    }
 }

@@ -14,19 +14,22 @@ public class UserService {
     @Autowired
     private UserRepository userRepo;
 
+    /**
+     *
+     * @param user a user object.
+     * @return the user object, if the user is inserted into db.
+     */
     public User addUser(User user) {
-
         return userRepo.insert(user);
     }
 
+    /**
+     *
+     * @param username
+     * @return a user object if they are found in db. otherwise, return null
+     */
     public User getUser(String username) {
-        List<User> users = userRepo.findByUserName(username);
-
-        if (!users.isEmpty()) {
-            return users.get(0);
-        } else {
-            return null;
-        }
+        return userRepo.findByUserName(username);
     }
 
 }

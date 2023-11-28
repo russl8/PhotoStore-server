@@ -39,7 +39,6 @@ public class PhotoService {
         }
     }
 
-
     /**
      *
      * @param id id of the photo
@@ -51,11 +50,7 @@ public class PhotoService {
             return true;
         }
         return false;
-
-
-
     }
-
 
     /**
      *
@@ -64,14 +59,6 @@ public class PhotoService {
      */
     public Photo getPhoto(String id) {
         return photoRepo.findById(id).get();
-    }
-
-    /**
-     *
-      * @return a list all photos by every user.
-     */
-    public List<Photo> getAllPhotos() {
-        return photoRepo.findAll();
     }
 
     /**

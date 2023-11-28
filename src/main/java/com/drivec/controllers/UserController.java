@@ -19,7 +19,12 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    //add user
+    /**
+     *
+     * @param username name of user signing up.
+     * @param model of the user
+     * @return a user object if a unique username is created. otherwise, return null.
+     */
     @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true", methods = {RequestMethod.POST})
     @PostMapping("/")
     @ResponseStatus(HttpStatus.CREATED)
@@ -32,9 +37,14 @@ public class UserController {
         return null;
     }
 
+    /**
+     *
+     * @param username username of the user that is being searched
+     * @return a user object, if they exist.
+     */
     @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true", methods = {RequestMethod.GET})
     @GetMapping("/{username}")
-    public User getPhoto(@PathVariable String username) {
+    public User getUser(@PathVariable String username) {
 
         return userService.getUser(username);
 

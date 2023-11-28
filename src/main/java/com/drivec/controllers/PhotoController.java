@@ -33,8 +33,6 @@ public class PhotoController {
     @PostMapping("/photo")
     @ResponseStatus(HttpStatus.CREATED)
     public String addPhoto(@RequestParam String userid, @RequestParam String title, @RequestParam MultipartFile image, Model model) throws IOException {
-        //test with sample userid
-        userid = "6552e9e91bf5e44bccb5b5f8";
         return photoService.addFile(userid, title, image);
     }
 
@@ -49,42 +47,6 @@ public class PhotoController {
     public String deletePhoto(@PathVariable String id) {
         return photoService.deletePhoto(id) ? "Photo " + id + " deleted" : "Photo " + id + " could not be deleted";
     }
-
-    /**
-     * Fetch one photo given id.
-     *
-     * @param id of the photo that client wants to retrieve
-     * @return a photo object containing title, image, id
-     */
-    @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true", methods = {RequestMethod.GET})
-    @GetMapping("/photo/{id}")
-    public ResponseEntity<Map<String, String>> getPhoto(@PathVariable String id) {
-        Photo photo = photoService.getPhoto(id);
-        if (photo != null) {
-            return ResponseEntity.ok(createResponse(photo));
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
-
-    /**
-     * Fetch all posts made by every user.
-     *
-     * @return a list of all photos in the photo collection
-     */
-    @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true", methods = {RequestMethod.GET})
-    @GetMapping("/photo/all")
-    public List<ResponseEntity<Map<String, String>>> getAllPhotos() {
-        List<ResponseEntity<Map<String, String>>> list = new ArrayList<>();
-        List<Photo> photoList = photoService.getAllPhotos();
-
-        for (Photo photo : photoList) {
-            list.add(ResponseEntity.ok(createResponse(photo)));
-        }
-
-        return list;
-    }
-
 
     /**
      * Fetch all posts created by a user.

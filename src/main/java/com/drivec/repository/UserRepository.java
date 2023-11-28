@@ -8,8 +8,10 @@ import org.springframework.data.mongodb.repository.Query;
 import java.util.List;
 
 public interface UserRepository extends MongoRepository<User,String> {
-    @Query("{userName: ?0}")
-    User getUser(String userName);
-
-    List<User> findByUserName(String username);
+    /**
+     *
+     * @param username searches db for user with specified username.
+     * @return user object if user is found. else, null.
+     */
+    User findByUserName(String username);
 }
