@@ -17,14 +17,14 @@ import java.util.List;
 public class User {
 
     @Id
-    private ObjectId userId;
+    private String userId;
     private String userName;
-    private List<Photo> photos = new ArrayList<Photo>();
 
     public User(String userName) {
+        this.userName = userName;
     }
 
-    public ObjectId getUserId() {
+    public String getUserId() {
 
         return this.userId;
     }

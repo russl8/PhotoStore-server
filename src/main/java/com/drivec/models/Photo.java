@@ -18,7 +18,7 @@ public class Photo {
     @Id
     private String photoId; //maybe just omit and use the mongodb ObjectID to easily populate...
     @Field("user")
-    private String userId;
+    private  String userId = "" ;
     private Binary photo;
     private String title;
 

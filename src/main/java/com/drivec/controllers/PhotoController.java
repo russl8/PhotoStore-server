@@ -93,7 +93,7 @@ public class PhotoController {
      * @return a list of all photos uploaded by a certain user
      */
     @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true", methods = {RequestMethod.GET})
-    @GetMapping("/{id}")
+    @GetMapping("/user/{id}")
     public List<ResponseEntity<Map<String, String>>> getAllPhotosByUser(@PathVariable String id) {
         List<ResponseEntity<Map<String, String>>> list = new ArrayList<>();
         List<Photo> photoList = photoService.getAllPhotosByUser(id);
