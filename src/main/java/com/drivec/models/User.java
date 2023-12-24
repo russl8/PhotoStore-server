@@ -24,4 +24,11 @@ public class User {
         this.userName = userName;
     }
 
+    public String getUserName() {
+        return this.userName;
+    }
+
+    public String toString() {
+        return this.userName + " " + this.userId;
+    }
 }

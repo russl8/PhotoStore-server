@@ -28,14 +28,16 @@ public class UserController {
     @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true", methods = {RequestMethod.POST})
     @PostMapping("/")
     @ResponseStatus(HttpStatus.CREATED)
-    public User createUser(@RequestParam String username, Model model) {
+    public User createUser(@RequestParam  String username, Model model) {
+        System.out.println("creating user " + username);
         User user = new User(username);
-        if(userService.getUser(username) == null) {
+        if (userService.getUser(username) == null) {
             return userService.addUser(user);
-
         }
         return null;
     }
+
+
 
     /**
      *
@@ -47,7 +49,6 @@ public class UserController {
     public User getUser(@PathVariable String username) {
 
         return userService.getUser(username);
-
     }
 
 }

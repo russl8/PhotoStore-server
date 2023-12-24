@@ -15,16 +15,18 @@ public class UserService {
     private UserRepository userRepo;
 
     /**
-     *
      * @param user a user object.
      * @return the user object, if the user is inserted into db.
      */
     public User addUser(User user) {
-        return userRepo.insert(user);
+        if (userRepo.findByUserName(user.getUserName()) == null) {
+            return userRepo.insert(user);
+        }
+        System.out.println("user already exists");
+        return null;
     }
 
     /**
-     *
      * @param username
      * @return a user object if they are found in db. otherwise, return null
      */
