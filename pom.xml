@@ -14,7 +14,7 @@
     <name>springboot-mongo</name>
     <description>Spring Boot API with MongoDB</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>8</java.version>
     </properties>
     <dependencies>
         <!-- MongoDB Starter -->
