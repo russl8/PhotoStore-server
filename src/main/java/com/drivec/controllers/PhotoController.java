@@ -29,7 +29,7 @@ public class PhotoController {
      * @return the id of uploaded photo document.
      * @throws IOException if photo cannot be uploaded.
      */
-    @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true", methods = {RequestMethod.POST})
+    @CrossOrigin(origins = "main--guileless-cheesecake-e176d5.netlify.app", allowCredentials = "true", methods = {RequestMethod.POST})
     @PostMapping("/photo")
     @ResponseStatus(HttpStatus.CREATED)
     public String addPhoto(@RequestParam String userid, @RequestParam String title, @RequestParam MultipartFile image, Model model) throws IOException {
@@ -42,7 +42,7 @@ public class PhotoController {
      * @param id the id of photo to be deleted.
      * @return a string saying whether not the photo has been deleted.
      */
-    @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true", methods = {RequestMethod.DELETE})
+    @CrossOrigin(origins = "main--guileless-cheesecake-e176d5.netlify.app", allowCredentials = "true", methods = {RequestMethod.DELETE})
     @DeleteMapping("/photo/{id}")
     public String deletePhoto(@PathVariable String id) {
         return photoService.deletePhoto(id) ? "Photo " + id + " deleted" : "Photo " + id + " could not be deleted";
@@ -54,7 +54,7 @@ public class PhotoController {
      * @param id the id of the user.
      * @return a list of all photos uploaded by a certain user
      */
-    @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true", methods = {RequestMethod.GET})
+    @CrossOrigin(origins = "main--guileless-cheesecake-e176d5.netlify.app", allowCredentials = "true", methods = {RequestMethod.GET})
     @GetMapping("/user/{id}")
     public List<ResponseEntity<Map<String, String>>> getAllPhotosByUser(@PathVariable String id) {
         List<ResponseEntity<Map<String, String>>> list = new ArrayList<>();
