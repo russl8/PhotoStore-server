@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDateTime;
 
@@ -15,8 +14,7 @@ import java.time.LocalDateTime;
 @EnableScheduling
 public class SpringbootMongoApplication {
 
-	@Autowired
-	private RestTemplate restTemplate;
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootMongoApplication.class, args);
@@ -26,13 +24,6 @@ public class SpringbootMongoApplication {
 	public void keepServerRunning() {
 		System.out.println("Cron: " + LocalDateTime.now());
 
-		String url = "https://photostore-server.onrender.com/your-endpoint";
-		String response = restTemplate.getForObject(url, String.class);
-
 	}
 
-	@Bean
-	public RestTemplate restTemplate() {
-		return new RestTemplate();
-	}
 }
