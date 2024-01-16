@@ -26,12 +26,9 @@ public class SpringbootMongoApplication {
 	public void keepServerRunning() {
 		System.out.println("Cron: " + LocalDateTime.now());
 
-		// Make GET request to the same server
-		String url = "http://localhost:8080/your-endpoint"; // Replace with your actual endpoint
+		String url = "https://photostore-server.onrender.com/your-endpoint";
 		String response = restTemplate.getForObject(url, String.class);
 
-		// Process the response as needed
-		System.out.println("Response: " + response);
 	}
 
 	@Bean
