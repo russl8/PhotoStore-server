@@ -18,8 +18,7 @@ public class SpringbootMongoApplication {
 	}
 
 
-//	@Scheduled(cron = "0 */10 * * * ?")
-	@Scheduled(cron = " */10 * * * * ?")
+	@Scheduled(cron = "0 */10 * * * ?")
 	public void keepServerRunning() {
 		System.out.println("Cron: " + LocalDateTime.now());
 	}
