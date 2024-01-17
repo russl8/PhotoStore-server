@@ -25,7 +25,7 @@ public class UserController {
      * @param model of the user
      * @return a user object if a unique username is created. otherwise, return null.
      */
-    @CrossOrigin(origins = "https://main--guileless-cheesecake-e176d5.netlify.app", allowCredentials = "true", methods = {RequestMethod.POST})
+    @CrossOrigin(origins = {"https://main--guileless-cheesecake-e176d5.netlify.app", "http://localhost:3000"}, allowCredentials = "true", methods = {RequestMethod.POST})
     @PostMapping("/")
     @ResponseStatus(HttpStatus.CREATED)
     public User createUser(@RequestParam  String username, Model model) {
@@ -44,7 +44,7 @@ public class UserController {
      * @param username username of the user that is being searched
      * @return a user object, if they exist.
      */
-    @CrossOrigin(origins = "https://main--guileless-cheesecake-e176d5.netlify.app", allowCredentials = "true", methods = {RequestMethod.GET})
+    @CrossOrigin(origins = {"https://main--guileless-cheesecake-e176d5.netlify.app", "http://localhost:3000"}, allowCredentials = "true", methods = {RequestMethod.GET})
     @GetMapping("/{username}")
     public User getUser(@PathVariable String username) {
 
